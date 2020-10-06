@@ -1,0 +1,16 @@
+{
+  "name": "api-aws",
+  "version": "1.0.0",
+  "description": "tp3 API envio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ariel Mercado",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.764.0",
+    "moment": "^2.29.0",
+    "nanoid": "^3.1.12"
+  }
+}
