@@ -22,12 +22,12 @@ var handler = async (event) => {
 
         case "GET":
           if(event.path == '/envios/pendientes'){
-            const paramsGet = {
+            var params = {
                 TableName: "envios",
                 FilterExpression: "attribute_exists(pendiente)"
             };
             return await docClient
-                .scan(paramsGet)
+                .scan(params)
                 .promise()
                 .then((data) => {
                     return {
@@ -43,11 +43,11 @@ var handler = async (event) => {
                     };
                 });
           } else {
-            const paramsGet = {
+            var params = {
                 TableName: "envios"
             };
             return await docClient
-                .scan(paramsGet)
+                .scan(params)
                 .promise()
                 .then((data) => {
                     return {
@@ -65,7 +65,7 @@ var handler = async (event) => {
           }
 
         case "POST":
-            const paramsPost = {
+            var params = {
                 TableName: "envios",
                 Item: {
                     id: nanoid(),
@@ -76,7 +76,7 @@ var handler = async (event) => {
                 }
             }
             return await docClient
-                .put(paramsPost)
+                .put(params)
                 .promise()
                 .then((data) => {
                     return {
@@ -93,7 +93,7 @@ var handler = async (event) => {
                 });
 
         case "PUT":
-            const paramsPut = {
+            var params = {
                 TableName: "envios",
                 Key: {
 
@@ -109,7 +109,7 @@ var handler = async (event) => {
             };
 
             return await docClient
-                .update(paramsPut)
+                .update(params)
                 .promise()
                 .then((data) => {
                     return {
