@@ -24,7 +24,9 @@ var handler = async (event) => {
           if(event.path == '/envios/pendientes'){
             var params = {
                 TableName: "envios",
-                FilterExpression: "attribute_exists(pendiente)"
+                IndexName: "EnviosPendientesIndex",
+                ProjectionExpression: "id, fechaAlta, pendiente, destino, email",
+                ScanIndexForward: "false"
             };
             return await docClient
                 .scan(params)
